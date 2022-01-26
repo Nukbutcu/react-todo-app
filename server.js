@@ -26,7 +26,7 @@ app.post("/api/todos", async (request, response) => {
 
 	const todo = { ...request.body, id: uuid() };
 	json.todos.push(todo);
-	await writeFile(DATABASE_URI, JSON.stringify(json));
+	await writeFile(DATABASE_URI, JSON.stringify(json, null, 4));
 	response.status(201);
 	response.json(todo);
 });
